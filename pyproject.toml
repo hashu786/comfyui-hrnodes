@@ -1,0 +1,17 @@
+[project]
+name = "comfyui-hrnodes"
+version = "1.0.0"
+description = "ComfyUI nodes by Hashu. Includes LTX Multi IC-LoRA: run two IC-LoRAs at once (e.g. pose + image reference), each masked to its own guide."
+license = { text = "MIT" }
+authors = [{ name = "Hashu" }]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.urls]
+# TODO: replace <your-github-username> once the repo is created.
+Repository = "https://github.com/<your-github-username>/comfyui-hrnodes"
+
+[tool.comfy]
+# TODO: set PublisherId to your ComfyUI Registry publisher id before publishing.
+PublisherId = ""
+DisplayName = "ComfyUI HR Nodes"

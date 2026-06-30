@@ -1,0 +1,1 @@
+# No extra runtime dependencies — relies on ComfyUI's bundled torch and comfy.* APIs.
