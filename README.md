@@ -6,8 +6,7 @@ Currently includes:
 
 ## 🎛️ LTX Multi IC-LoRA
 
-Run **two LTX-2 IC-LoRAs at the same time** — e.g. **pose/structural control + an
-image/appearance reference** — in a single generation, instead of being limited
+Run **two LTX-2 IC-LoRAs at the same time** — e.g. **union + ingredients** — in a single generation, instead of being limited
 to one IC-LoRA at a time.
 
 | | |
