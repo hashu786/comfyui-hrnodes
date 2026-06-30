@@ -28,6 +28,6 @@ each LoRA only where it belongs.
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/<your-github-username>/comfyui-hrnodes
+git clone https://github.com/hashu786/comfyui-hrnodes
 # restart ComfyUI
 ```
