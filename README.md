@@ -1,3 +1,6 @@
+https://github.com/user-attachments/assets/fff2ae51-7c20-4d9b-b933-a0f26871b107
+
+
 # ComfyUI HR Nodes
 
 Custom ComfyUI nodes by **Hashu786**.
