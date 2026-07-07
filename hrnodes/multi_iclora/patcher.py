@@ -56,6 +56,14 @@ def _install_wrapper(model, targets, noisy_blend):
             except Exception as e:  # noqa: BLE001
                 logger.warning("MultiICLoRA: could not hook '%s' (%s)", module_path, e)
 
+        # Another node (e.g. bfsnodes LTX Identity Transfer) may have installed a
+        # PERMANENT instance-level _process_input patch. Record the exact prior
+        # state so we restore it instead of clobbering it: a bare ``del`` would
+        # drop their patch to the class method while leaving their _prepare_timestep
+        # patch active -> ref timesteps appended for tokens vx no longer has ->
+        # shape mismatch that only a ComfyUI restart clears.
+        had_own_pi = "_process_input" in dm.__dict__
+        prev_pi = dm.__dict__.get("_process_input")
         dm._process_input = capturing_process_input
         try:
             return executor(*args, **kwargs)
@@ -66,7 +74,10 @@ def _install_wrapper(model, targets, noisy_blend):
                 except Exception:
                     pass
             try:
-                del dm._process_input
+                if had_own_pi:
+                    dm._process_input = prev_pi   # restore the other node's patch
+                else:
+                    del dm._process_input          # we added it; remove cleanly
             except Exception:
                 pass
             if state["tok"] is not None:
